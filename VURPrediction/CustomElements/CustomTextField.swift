@@ -18,6 +18,7 @@ final class CustomTextField: UITextField {
             backgroundColor = .white
             textColor = .black
             keyboardType = UIKeyboardType.decimalPad
+            clearButtonMode = .whileEditing
         }
         
         required init?(coder: NSCoder) {

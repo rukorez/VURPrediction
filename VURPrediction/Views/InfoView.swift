@@ -1,18 +1,18 @@
 //
-//  InfoViewController.swift
+//  InfoView.swift
 //  VURPrediction
 //
-//  Created by Филипп Степанов on 27.04.2022.
+//  Created by Филипп Степанов on 02.06.2022.
 //
 
 import UIKit
 
-class InfoViewController: UIViewController {
+final class InfoView: UIView {
     
-    lazy var scrollView = UIScrollView()
-    lazy var contentView = UIView()
+    private lazy var scrollView = UIScrollView()
+    private lazy var contentView = UIView()
     
-    lazy var textInfo: UILabel = {
+    private lazy var textInfo: UILabel = {
         var text = UILabel()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.numberOfLines = 0
@@ -21,34 +21,38 @@ class InfoViewController: UIViewController {
         return text
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        view.backgroundColor = .systemGray6
         setSubviews()
         setConstraints()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setSubviews() {
-        view.addSubview(scrollView)
+        backgroundColor = .systemGray6
+        addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(textInfo)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }
-
-
+    
 }
 
-// MARK: Констрейнты
+// MARK: - Constraints
 
-extension InfoViewController {
+extension InfoView {
+    
     private func setConstraints() {
         let constraints = [
-            scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
@@ -63,5 +67,5 @@ extension InfoViewController {
         ]
         NSLayoutConstraint.activate(constraints)
     }
+    
 }
-

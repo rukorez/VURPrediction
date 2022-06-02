@@ -1,5 +1,5 @@
 //
-//  Ащд.swift
+//  Formula.swift
 //  VURPrediction
 //
 //  Created by Филипп Степанов on 15.03.2022.

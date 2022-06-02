@@ -37,9 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = launchVC
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.window?.rootViewController = tabBarController
         }
+        
         window?.makeKeyAndVisible()
     }
 
